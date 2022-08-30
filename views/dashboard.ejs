@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('./includes/head') %>
+
+    <body class="rtl">
+        <%- include('./includes/dashboardHeader.ejs') %>
+        <div class="container-fluid">
+            <div class="row">
+                <%- include('./includes/dashboardSidebar.ejs') %> 
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                    <h2 class="mt-3 mb-3">آخرین پست ها</h2>
+                    <% if(blogs.length>0){ %>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>عنوان</th>
+                                        <th>تاریخ</th>
+                                        <th>وضعیت</th>
+                                        <th>تست</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% blogs.forEach((blog,index) => { %>
+                                        <tr>
+                                        <td>
+                                            <span><%= index+1 %></span>
+                                        </td>
+                                        <td>
+                                            <a href="/blogs/<%= blog.id %> "><%= blog.title %></a>
+                                        </td>
+                                        <td>
+                                            <span><%= formatDate(blog.createdAt) %></span>
+                                        </td>
+                                        <td>
+                                            <span class=" p-1 rounded <%= blog.status==='public'? 'badge-success' : 'badge-warning' %> ">
+                                                <%= blog.status==='public'? 'عمومی' : 'خصوصی' %>
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <a href="/dashboard/edit-post/<%= blog._id %> " class="btn btn-sm btn-primary">ویرایش</a>
+                                        </td>
+                                        <td>
+                                            <a href="/dashboard/delete-post/<%= blog._id %> " class="btn btn-sm btn-danger">حذف</a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                            <%- include('./includes/pagination') %> 
+                        </div>
+                    <% } else{ %>
+                        <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading"><%= fullname %> عزیز</h4>
+                            <p>شما هموز پستی ثبت نکردی اگه میخوای ما رو با پست های زیبات شاد کنی از لینک زیر استفاده کن</p>
+                            <hr>
+                            <a href="/dashboard/add-post" class="mb-0 btn btn-primary">ایجاد پست جدید</a>
+                        </div>
+                    <% } %>
+                </main>
+            </div>
+        </div>
+        <%- include('./includes/jssrcs') %>
+    </body>
+
+</html>

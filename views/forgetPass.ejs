@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+
+<%- include('./includes/head') %>
+
+    <body class="rtl">
+
+        <form id="loginForm" class="form-signin" action="/user/forget-password" method="POST">
+            <h1 class="h3 mb-3 font-weight-normal">فراموشی رمز عبور</h1>
+            <%- include("./includes/signinMessage.ejs") %>
+                <label for="inputEmail" class="sr-only">آدرس ایمیل</label>
+                <input type="email" name="email" id="inputEmail" class="form-control mb-2" placeholder="آدرس ایمیل"
+                    required autofocus />
+                <button class="btn btn-lg btn-primary btn-block" type="submit">
+                    ریست پسورد
+                </button>
+        </form>
+
+        <%- include('./includes/jssrcs') %>
+    </body>
+
+</html>
