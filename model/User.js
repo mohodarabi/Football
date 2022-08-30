@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema({
     maxLength: 255,
     minLength: 4,
   },
+  role: {
+    type: String,
+    default: "user",
+  },
   createdAt: {
     type: Date,
     default: Date.now,
