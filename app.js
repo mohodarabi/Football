@@ -61,7 +61,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 //* routes---------------------------------------------
 app.use("/user", require("./routes/user"));
-app.use("/dashboard", require("./routes/dashboard"));
+app.use("/dashboard/user", require("./routes/userDashboard"));
+app.use("/dashboard/admin", require("./routes/adminDashboard"));
 app.use("/", require("./routes/index"));
 
 //* 404 page not found --------------------------------

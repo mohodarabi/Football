@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { authenticate } = require("../middlewares/authenticate");
 
-const dashboardController = require("../controller/dashboardController");
+const dashboardController = require("../controller/userDashboardController");
 
 const router = new Router();
 
