@@ -71,13 +71,6 @@ exports.createdUser = async (req, res) => {
     }
     await User.create({ fullname, email, password });
 
-    sendMail(
-      email,
-      fullname,
-      "خوش آمدی به وبلاگ ما",
-      "خیلی خوشحالیم که به جمع ما وبلاگرهای خفن ملحق شدی"
-    );
-
     req.flash("success_msg", "حساب کاربری با موفقیت ایجاد شد");
     res.redirect("/user/signin");
   } catch (err) {
@@ -114,20 +107,10 @@ exports.handleForgetPassword = async (req, res) => {
     });
   }
 
-  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-    expiresIn: "1hr",
-  });
-  const resetLink = `http://localhost:3000/user/reset-password/${token}`;
-
-  sendMail(
-    user.email,
-    user.fullname,
-    "فراموشی رمز عبور",
-    `
-        جهت تغییر رمز عبور فعلی رو لینک زیر کلیک کنید
-        <a href="${resetLink}">لینک تغییر رمز عبور</a>
-    `
-  );
+  // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+  //   expiresIn: "1hr",
+  // });
+  // const resetLink = `http://localhost:3000/user/reset-password/${token}`;
 
   req.flash("success_msg", "ایمیل حاوی لینک با موفقیت ارسال شد");
 
