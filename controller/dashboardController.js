@@ -5,7 +5,6 @@ const shortId = require("shortid");
 const sharp = require("sharp");
 const appRoot = require("app-root-path");
 
-const Blog = require("../model/Blog");
 const { formatDate } = require("../utils/jalali");
 const { get500, get404 } = require("./errorController");
 const { fileFilter } = require("../utils/multer");
