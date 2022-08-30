@@ -1,10 +1,10 @@
 const Yup = require("yup");
 
 exports.signupSchema = Yup.object().shape({
-  fullname: Yup.string()
-    .required("نام و نام خانوادگی الزامی می باشد")
-    .min(4, "نام و نام خانوادگی نباید کمتر از 4 کاراکتر باشد")
-    .max(255, "نام و نام خانوادگی نباید بیشتر از 255 کاراکتر باشد"),
+  username: Yup.string()
+    .required("username الزامی می باشد")
+    .min(4, "username نباید کمتر از 4 کاراکتر باشد")
+    .max(255, "username نباید بیشتر از 255 کاراکتر باشد"),
   email: Yup.string()
     .email("ایمیل معتبر نمی باشد")
     .required("ایمیل الزامی می باشد"),

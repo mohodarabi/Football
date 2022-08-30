@@ -1,25 +1,22 @@
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <link rel="stylesheet" href="/css/bootstrap-rtl.css">
-    <link rel="stylesheet" href="/css/font-awesome.css">
+  <link rel="stylesheet" href="/css/bootstrap-rtl.css" />
+  <link rel="stylesheet" href="/css/font-awesome.css" />
 
-    <% if (path === '/signin' || path === '/signup') { %>
-        <link rel="stylesheet" href="/css/signin.css">
-        <script src="https://www.google.com/recaptcha/api.js?hl=fa" async defer></script>
-    <% } else if (path === '/dasboard') { %>
-        <link rel="stylesheet" href="/css/dasboard.css">
-    <% } else if (path === '/404' || path === '/500') { %>
-        <link rel="stylesheet" href="/css/404.css">
-    <% }else{ %>
-        <link rel="stylesheet" href="/css/styles.css">
-    <% } %>
+  <% if (path === '/signin' || path === '/signup') { %>
+  <link rel="stylesheet" href="/css/login.css" />
+  <% } else if (path === '/dasboard') { %>
+  <link rel="stylesheet" href="/css/dasboard.css" />
+  <% } else if (path === '/404' || path === '/500') { %>
+  <link rel="stylesheet" href="/css/404.css" />
+  <% }else{ %>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <% } %>
 
-    <title>
-        <%= pageTitle %>
-    </title>
+  <title><%= pageTitle %></title>
 </head>

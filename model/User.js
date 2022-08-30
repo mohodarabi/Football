@@ -4,7 +4,7 @@ const bcrypt = require("bcryptjs");
 const { signupSchema } = require("./secure/signupValidation");
 
 const userSchema = new mongoose.Schema({
-  fullname: {
+  username: {
     type: String,
     required: true,
     trim: true,

@@ -32,8 +32,7 @@ exports.rememberMe = (req, res) => {
   } else {
     req.session.cookie.expire = null;
   }
-
-  res.redirect("/dashboard");
+  res.redirect("/dashboarduser");
 };
 
 exports.logout = (req, res) => {
