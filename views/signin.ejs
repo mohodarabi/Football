@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./includes/head.ejs') %>
+  <%- include('./includes/login/head.ejs') %>
   <body>
     <div class="limiter">
       <div class="container-login100">
@@ -9,9 +9,8 @@
             <span class="login100-form-title-1"> Sign In </span>
           </div>
 
-          <%- include('./includes/signinMessage') %>
-
           <form class="form-signin login100-form validate-form" action="/user/signin" method="POST">
+            <%- include('./includes/message/signinMessage') %>
             <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
               <span class="label-input100">email</span>
               <input class="input100" type="email" name="email" placeholder="Enter Email" />
@@ -42,6 +41,6 @@
         </div>
       </div>
     </div>
-    <%- include('./includes/jssrcs.ejs') %>
+    <%- include('./includes/login/jssrcs.ejs') %>
   </body>
 </html>
