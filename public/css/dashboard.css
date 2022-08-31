@@ -286,7 +286,8 @@ ul {
 }
 
 .form-control::placeholder {
-  font-size: 18px;
+  font-size: 16px;
+  font: 'Vazir';
 }
 
 .select2-container--default .select2-selection--single,
