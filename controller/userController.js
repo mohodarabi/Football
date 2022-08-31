@@ -17,13 +17,19 @@ exports.signin = (req, res) => {
 }
 
 exports.loginHandler = async (req, res, next) => {
-  passport.authenticate('local', {
-    failureRedirect: '/user/signin',
-    failureFlash: true,
-  })(req, res, next)
+  if (req.body.email === '' || req.body.password === '') {
+    req.flash('error', 'فیلدهای زیر را پر کنید')
+    res.redirect('/user/signin')
+  } else {
+    passport.authenticate('local', {
+      failureRedirect: '/user/signin',
+      failureFlash: true,
+    })(req, res, next)
+  }
 }
 
 exports.rememberMe = (req, res) => {
+  console.log('s')
   if (req.body.rememberMe) {
     req.session.cookie.originalMaxAge = 7 * 60 * 60 * 1000
   } else {

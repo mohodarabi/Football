@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('./includes/head.ejs') %>
-  <body>
+  <%- include('./includes/login/head.ejs') %>
+  <body class="rtl">
     <div class="limiter">
       <div class="container-login100">
         <div class="wrap-login100">
@@ -9,17 +9,11 @@
             <span class="login100-form-title-1"> Sign In </span>
           </div>
 
-          <form class="form-signin login100-form validate-form" action="/user/signup" method="POST">
-            <%- include('./includes/validationMessages') %>
-            <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+          <form class="form-signin login100-form validate-form" action="/user/signin" method="POST">
+            <%- include('./includes/message/signinMessage') %>
+            <div class="wrap-input100 validate-input m-b-26 d-flex" data-validate="Username is required">
               <span class="label-input100">email</span>
               <input class="input100" type="email" name="email" placeholder="Enter Email" />
-              <span class="focus-input100"></span>
-            </div>
-
-            <div class="wrap-input100 secondRow validate-input m-b-18" data-validate="Password is required">
-              <span class="label-input100">Password</span>
-              <input class="input100" type="password" name="password" placeholder="Enter password" />
               <span class="focus-input100"></span>
             </div>
 
@@ -34,6 +28,10 @@
                 <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
                 <label class="label-checkbox100" for="ckb1"> Remember me </label>
               </div>
+
+              <div>
+                <a href="#" class="txt1"> Forgot Password? </a>
+              </div>
             </div>
 
             <div class="container-login100-form-btn">
@@ -43,6 +41,6 @@
         </div>
       </div>
     </div>
-    <%- include('./includes/jssrcs.ejs') %>
+    <%- include('./includes/login/jssrcs.ejs') %>
   </body>
 </html>
