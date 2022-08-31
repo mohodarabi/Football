@@ -11,6 +11,7 @@ const { fileFilter } = require('../utils/multer')
 
 exports.getDashboard = async (req, res) => {
   try {
+    console.log('is here')
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
 
     res.render('adminDashboard', {

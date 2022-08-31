@@ -2,43 +2,60 @@
 <html lang="en">
   <%- include('./includes/login/head.ejs') %>
   <body class="rtl">
-    <div class="limiter">
-      <div class="container-login100">
-        <div class="wrap-login100">
-          <div class="login100-form-title" style="background-image: url(/img/bg-01.jpg)">
-            <span class="login100-form-title-1"> Sign In </span>
-          </div>
-
-          <form class="form-signin login100-form validate-form" action="/user/signin" method="POST">
-            <%- include('./includes/message/signinMessage') %>
-            <div class="wrap-input100 validate-input m-b-26 d-flex" data-validate="Username is required">
-              <span class="label-input100">email</span>
-              <input class="input100" type="email" name="email" placeholder="Enter Email" />
-              <span class="focus-input100"></span>
-            </div>
-
-            <div class="wrap-input100 secondRow validate-input m-b-18" data-validate="Password is required">
-              <span class="label-input100">Password</span>
-              <input class="input100" type="password" name="password" placeholder="Enter password" />
-              <span class="focus-input100"></span>
-            </div>
-
-            <div class="thirdRow">
-              <div class="contact100-form-checkbox">
-                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
-                <label class="label-checkbox100" for="ckb1"> Remember me </label>
-              </div>
-
-              <div>
-                <a href="#" class="txt1"> Forgot Password? </a>
-              </div>
-            </div>
-
-            <div class="container-login100-form-btn">
-              <button type="submit" class="login100-form-btn">Login</button>
-            </div>
-          </form>
+    <div class="row mx-0 auth-wrapper">
+      <!--remove bg-->
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="d-none d-sm-flex col-sm-6 col-lg-7 align-items-center p-5">
+        <div class="d-lg-flex flex-column w-100  text-center text-white">
+          <img src="" class="mb-3">
+          <h1 classname="d-flex">سلام 👋 خوش اومدی</h1>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
         </div>
+      </div>
+      <div class="d-flex justify-content-center col-sm-6 col-lg-5 align-items-center px-5 bg-white mx-auto">
+        <form class="form-wrapper w-50" action="/user/signup" method="POST">
+          <div class="d-flex flex-column">
+            <div class="mb-4">
+              
+              <h3 class="font-medium mb-1">ثبت نام</h3>
+              <p class="mb-2">لطفا وارد حساب کاربری خود شوید</p>
+            </div>
+            <div class="mb-10">
+              <%- include('./includes/message/validationMessages') %>
+              <div class="form-group">
+                <label for="username" class="">نام کاربری</label>
+                <input name="username" type="text" placeholder="نام کاربری خود را وارد کنید" class="form-control">
+                </input>
+              </div>
+              <div class="form-group">
+                <label for="mail" class="">ایمیل</label>
+                <input name="email" type="text" placeholder="ایمیل خود را وارد کنید" class="form-control">
+                </input>
+              </div>
+              <div class="form-group">
+                <label for="password" class="">پسورد</label>
+                <input name="password" type="password" placeholder="پسورد خود را وارد کنید" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="repassword" class="">پسورد</label>
+                <input name="repassword" type="password" placeholder="پسورد خود را وارد مجددا کنید" class="form-control">
+              </div>
+              <div class="text-right"><a class="btn btn-link">رمر عبور را فراموش کردید؟</a></div>
+              <button type="submit" class="btn btn-primary btn-block mt-3 border-0">ایجاد حساب کاربری</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
     <%- include('./includes/login/jssrcs.ejs') %>

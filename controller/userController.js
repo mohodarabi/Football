@@ -29,13 +29,12 @@ exports.loginHandler = async (req, res, next) => {
 }
 
 exports.rememberMe = (req, res) => {
-  console.log('s')
   if (req.body.rememberMe) {
     req.session.cookie.originalMaxAge = 7 * 60 * 60 * 1000
   } else {
     req.session.cookie.expire = null
   }
-  if (req.user === 'user') {
+  if (req.user.role === 'user') {
     res.redirect('/dashboard/user')
   } else {
     res.redirect('/dashboard/admin')
@@ -63,7 +62,7 @@ exports.signup = (req, res) => {
 exports.createdUser = async (req, res) => {
   try {
     await User.validation(req.body)
-    const { fullname, email, password } = req.body
+    const { username, email, password } = req.body
     const user = await User.findOne({ email })
     if (user) {
       return res.render('signup', {
@@ -72,8 +71,7 @@ exports.createdUser = async (req, res) => {
         errors: ['کاربری با این ایمیل وجود دارد'],
       })
     }
-    await User.create({ fullname, email, password })
-
+    await User.create({ username, email, password })
     req.flash('success_msg', 'حساب کاربری با موفقیت ایجاد شد')
     res.redirect('/user/signin')
   } catch (err) {
