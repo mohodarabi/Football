@@ -8,27 +8,17 @@
 </script>
 <!-- Bootstrap 4 -->
 <script src="/js/bootstrap.bundle.min.js"></script>
+
+<% if (path === '/adminDashboard' ) { %>
 <!-- Select2 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('.select2').select2({ closeOnSelect: false })
-  })
-</script>
-
+<script src="/plugins/select2Options.js"></script>
 <!-- Persian Data Picker -->
 <script src="/plugins/persian-date.js"></script>
 <script src="/plugins/persian-datepicker.js"></script>
 <script src="/plugins/persianDatePickerOption.js"></script>
+<% } %>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="/js/adminlte.min.js"></script>
 <script src="/js/pages/dashboard.js"></script>
-
-<!-- { "inline": false, "format": "LLLL", "viewMode": "day", "initialValue": true, "minDate": 1661700272234, "maxDate": 1662650672241, "autoClose": true, "position": "auto", "altFormat": "lll", "altField":
-"#altfieldExample", "onlyTimePicker": false, "onlySelectOnDate": true, "calendarType": "persian", "inputDelay": 800, "observer": true, "calendar": { "persian": { "locale": "fa", "showHint": true,
-"leapYearMode": "algorithmic" }, "gregorian": { "locale": "en", "showHint": true } }, "navigator": { "enabled": true, "scroll": { "enabled": true }, "text": { "btnNextText": "<", "btnPrevText": ">" }
-}, "toolbox": { "enabled": true, "calendarSwitch": { "enabled": true, "format": "MMMM" }, "todayButton": { "enabled": true, "text": { "fa": "امروز", "en": "Today" } }, "submitButton": { "enabled":
-true, "text": { "fa": "تایید", "en": "Submit" } }, "text": { "btnToday": "امروز" } }, "timePicker": { "enabled": true, "step": 1, "hour": { "enabled": true, "step": null }, "minute": { "enabled":
-true, "step": null }, "second": { "enabled": true, "step": null }, "meridian": { "enabled": true } }, "dayPicker": { "enabled": true, "titleFormat": "YYYY MMMM" }, "monthPicker": { "enabled": true,
-"titleFormat": "YYYY" }, "yearPicker": { "enabled": true, "titleFormat": "YYYY" }, "responsive": true } -->

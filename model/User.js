@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const mongoose = require('mongoose')
+const bcrypt = require('bcryptjs')
 
-const { signupSchema } = require("./secure/signupValidation");
+const { signupSchema } = require('./secure/signupValidation')
 
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
     trim: true,
+    unique: true,
   },
   email: {
     type: String,
@@ -22,7 +23,7 @@ const userSchema = new mongoose.Schema({
   },
   role: {
     type: String,
-    default: "user",
+    default: 'user',
   },
   createdAt: {
     type: Date,
@@ -32,23 +33,23 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+})
 
 userSchema.statics.validation = function (body) {
-  return signupSchema.validate(body, { abortEarly: false });
-};
+  return signupSchema.validate(body, { abortEarly: false })
+}
 
-userSchema.pre("save", function (next) {
-  let user = this;
+userSchema.pre('save', function (next) {
+  let user = this
 
-  if (!user.isModified("password")) return next();
+  if (!user.isModified('password')) return next()
 
   bcrypt.hash(user.password, 10, (err, hash) => {
-    if (err) next(err);
+    if (err) next(err)
 
-    user.password = hash;
-    next();
-  });
-});
+    user.password = hash
+    next()
+  })
+})
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model('User', userSchema)
