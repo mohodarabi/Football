@@ -16,7 +16,7 @@ exports.getDashboard = async (req, res) => {
       "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
     );
 
-    res.render("dashboard", {
+    res.render("newDashboard", {
       pageTitle: "مدیریت حساب کاربری",
       path: "/dashboard",
       fullname: req.user.fullname,
