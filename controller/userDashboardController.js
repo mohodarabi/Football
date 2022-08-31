@@ -13,7 +13,7 @@ exports.getDashboard = async (req, res) => {
   try {
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
 
-    res.render('addTeamDashboard', {
+    res.render('adminDashboard', {
       pageTitle: 'مدیریت حساب کاربری',
       path: '/dashboard',
       fullname: req.user.fullname,

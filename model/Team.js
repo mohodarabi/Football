@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const { teamValidationSchema } = require("./secure/teamValidation");
+const { teamValidationSchema } = require('./secure/teamValidation')
 
 const teamSchema = new mongoose.Schema({
   name: {
@@ -14,6 +14,10 @@ const teamSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  thumbnail: {
+    type: String,
+    required: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -22,10 +26,10 @@ const teamSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+})
 
 teamSchema.statics.validation = function (body) {
-  return teamValidationSchema.validate(body, { abortEarly: false });
-};
+  return teamValidationSchema.validate(body, { abortEarly: false })
+}
 
-module.exports = mongoose.model("Team", teamSchema);
+module.exports = mongoose.model('Team', teamSchema)
