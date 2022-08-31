@@ -362,3 +362,8 @@ ul {
   background-color: #fff;
   color: #343a40;
 }
+
+.datepicker-plot-area {
+  width: 300px;
+  font-size: 14px;
+}
