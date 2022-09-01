@@ -1618,7 +1618,6 @@ h6 a:hover {
 
 .matchSchedule p {
   text-align: center;
-  padding: 40px 0;
 }
 
 /* - ------------ match sedule ---------*/
@@ -1909,5 +1908,9 @@ h6 a:hover {
 }
 
 .latestResult .last-result {
+  margin-right: 8px;
+}
+
+.matchSchedule .matchScheduleSpan {
   margin-right: 8px;
 }
