@@ -1,26 +1,28 @@
-const { Router } = require("express");
+const { Router } = require('express')
 
-const userController = require("../controller/userController");
-const { authenticate } = require("../middlewares/authenticate");
+const userController = require('../controller/userController')
+const { userAuthenticate, adminAuthenticate, } = require('../middlewares/authenticate')
 
-const router = new Router();
+const router = new Router()
 
-router.get("/signin", userController.signin);
+router.get('/signin', userController.signin)
 
-router.post("/signin", userController.loginHandler, userController.rememberMe);
+router.post('/signin', userController.loginHandler, userController.rememberMe)
 
-router.get("/logout", authenticate, userController.logout);
+router.get('/a/logout', adminAuthenticate, userController.logout)
 
-router.get("/signup", userController.signup);
+router.get('/u/logout', userAuthenticate, userController.logout)
 
-router.post("/signup", userController.createdUser);
+router.get('/signup', userController.signup)
 
-router.get("/forget-password", userController.forgetPassword);
+router.post('/signup', userController.createdUser)
 
-router.post("/forget-password", userController.handleForgetPassword);
+router.get('/forget-password', userController.forgetPassword)
 
-router.get("/reset-password/:token", userController.resetPassword);
+router.post('/forget-password', userController.handleForgetPassword)
 
-router.post("/reset-password/:id", userController.handleResetPassword);
+router.get('/reset-password/:token', userController.resetPassword)
 
-module.exports = router;
+router.post('/reset-password/:id', userController.handleResetPassword)
+
+module.exports = router

@@ -1,10 +1,10 @@
-const { Router } = require("express");
-const { authenticate } = require("../middlewares/authenticate");
+const { Router } = require('express')
+const { adminAuthenticate } = require('../middlewares/authenticate')
 
-const dashboardController = require("../controller/adminDashboardController");
+const dashboardController = require('../controller/adminDashboardController')
 
-const router = new Router();
+const router = new Router()
 
-router.get("/", authenticate, dashboardController.getDashboard);
+router.get('/', adminAuthenticate, dashboardController.getDashboard)
 
-module.exports = router;
+module.exports = router

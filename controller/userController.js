@@ -36,15 +36,17 @@ exports.rememberMe = (req, res) => {
   }
   if (req.user.role === 'user') {
     res.redirect('/dashboard/user')
-  } else {
+  } else if (req.user.role === 'admin') {
     res.redirect('/dashboard/admin')
+  } else {
+    res.redirect('/404')
   }
 }
 
 exports.logout = (req, res) => {
-  req.logout(function (err) {
+  req.logout((err) => {
     if (err) {
-      log(err)
+      console.log(err)
     }
     req.flash('success_msg', 'شما با موفقیت خارج شدید')
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')

@@ -17,7 +17,8 @@ exports.getDashboard = async (req, res) => {
     res.render('adminDashboard', {
       pageTitle: 'مدیریت حساب کاربری',
       path: '/adminDashboard',
-      fullname: req.user.fullname,
+      username: req.user.username,
+      role: req.user.role,
     })
   } catch (err) {
     console.log(err)

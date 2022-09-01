@@ -10,7 +10,11 @@
   <!-- Right navbar links -->
   <ul class="navbar-nav mr-auto">
     <li class="nav-item text-nowrap">
-      <a class="nav-link btn btn-dark rounded text-light" href="/user/logout">خروج</a>
+      <% if (role === 'user' ) { %>
+      <a class="nav-link btn btn-dark rounded text-light" href="/user/u/logout">خروج</a>
+      <% } else{ %>
+      <a class="nav-link btn btn-dark rounded text-light" href="/user/a/logout">خروج</a>
+      <% } %>
     </li>
   </ul>
 </nav>
