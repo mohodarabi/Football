@@ -1,5 +1,9 @@
-const { Router } = require("express");
+const { Router } = require('express')
 
-const router = new Router();
+const footballController = require('../controller/footballController')
 
-module.exports = router;
+const router = new Router()
+
+router.get('/', footballController.getIndex)
+
+module.exports = router
