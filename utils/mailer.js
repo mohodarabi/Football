@@ -1,27 +1,26 @@
-const nodeMailer = require("nodemailer");
-const smtpTransport = require("nodemailer-smtp-transport");
+const nodeMailer = require('nodemailer')
+const smtpTransport = require('nodemailer-smtp-transport')
 
-const transportDetail = smtpTransport({
-  host: "mail.mhdarabi.ir",
-  port: 465,
-  secure: true,
+const transporterDetails = smtpTransport({
+  host: 'mail.mhdarabi.ir',
+  port: 2079,
   auth: {
-    user: "weblog@mhdarabi.ir",
-    pass: ".kFkETVc+Hm}",
+    user: 'football@mhdarabi.ir',
+    pass: 'Elmondoo1999',
   },
   tls: {
     rejectUnauthorized: false,
   },
-});
+})
 
 exports.sendMail = (email, fullname, subject, message) => {
-  const transporter = nodeMailer.createTransport(transportDetail);
+  const transporter = nodeMailer.createTransport(transporterDetails)
 
   transporter.sendMail({
-    from: "weblog@mhdarabi.ir",
+    from: 'toplearn@ghorbany.dev',
     to: email,
     subject: subject,
     text: `<h1>سلام ${fullname}<h1>
             <p>${message}</p>`,
-  });
-};
+  })
+}

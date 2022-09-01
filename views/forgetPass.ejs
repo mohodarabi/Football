@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./includes/login/head.ejs') %>
+  <body class="rtl">
+    <div class="row mx-0 auth-wrapper">
+      <!--remove bg-->
+      <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <div class="d-none d-sm-flex col-sm-6 col-lg-7 align-items-center p-5">
+        <div class="d-lg-flex flex-column w-100  text-center text-white">
+          <img src="" class="mb-3">
+          <h1 classname="d-flex">سلام 👋 خوش اومدی</h1>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ</p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center col-sm-6 col-lg-5 align-items-center px-5 bg-white mx-auto">
+        <form class="form-wrapper w-50" action="/user/forget-password" method="POST">
+          <div class="d-flex flex-column">
+            <div class="mb-4">
+              <h3 class="font-medium mb-1">ورود</h3>
+              <p class="mb-2">لطفا وارد حساب کاربری خود شوید</p>
+            </div>
+            <div class="mb-10">
+              <%- include('./includes/message/signinMessage') %>
+              <div class="form-group">
+                <label for="mail" class="">ایمیل</label>
+                <input name="email" type="text" placeholder="ایمیل خود را وارد کنید" class="form-control">
+                </input>
+              </div>
+              <button type="submit" class="btn btn-primary btn-block mt-3 border-0">فراموشی رمز عبور</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include('./includes/login/jssrcs.ejs') %>
+  </body>
+</html>

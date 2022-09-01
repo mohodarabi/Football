@@ -101,7 +101,6 @@ exports.handleForgetPassword = async (req, res) => {
 
   if (!user) {
     req.flash('error', 'کاربری با این ایمیل در پایگاه داده ثبت نشده')
-
     return res.render('forgetPass', {
       pageTitle: 'فراموشی رمز عبور',
       path: '/signin',
@@ -110,10 +109,18 @@ exports.handleForgetPassword = async (req, res) => {
     })
   }
 
-  // const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
-  //   expiresIn: "1hr",
-  // });
-  // const resetLink = `http://localhost:3000/user/reset-password/${token}`;
+  const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '1hr' })
+  const resetLink = `http://localhost:8000/user/reset-password/${token}`
+
+  sendMail(
+    user.email,
+    user.fullname,
+    'فراموشی رمز عبور',
+    `
+      جهت تغییر رمز عبور فعلی رو لینک زیر کلیک کنید
+      <a href="${resetLink}">لینک تغییر رمز عبور</a>
+  `
+  )
 
   req.flash('success_msg', 'ایمیل حاوی لینک با موفقیت ارسال شد')
 
