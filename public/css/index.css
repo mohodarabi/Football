@@ -1842,10 +1842,10 @@ h6 a:hover {
 }
 
 @media (min-width: 768px) {
-  .t_info li:nth-of-type(2) {
+  /* .t_info li:nth-of-type(2) {
     float: right;
     width: 58.333333%;
-  }
+  } */
 }
 
 .t_info li:nth-of-type(2) .headline01 span {
@@ -1885,9 +1885,29 @@ h6 a:hover {
     float: right;
   }
   .t_info li:nth-of-type(2) .headline01 span.vs {
-    width: 20%;
-    font-size: 30px;
-    line-height: 30px;
+    width: 29%;
+    font-size: 20px;
     text-align: center;
   }
+}
+
+.topHeaderRight {
+  display: flex;
+  align-items: center;
+}
+
+.topHeaderRight .slash {
+  color: #fff;
+}
+
+.booking .scc {
+  margin-right: 5px;
+}
+
+.about-wrap {
+  margin-top: 25px;
+}
+
+.latestResult .last-result {
+  margin-right: 8px;
 }
