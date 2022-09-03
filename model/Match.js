@@ -1,16 +1,14 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-const { matchValidationSchema } = require("./secure/matchValidationSchema");
+const { matchValidationSchema } = require('./secure/matchValidationSchema')
 
 const matchSchema = new mongoose.Schema({
   firstTeam: {
-    type: Schema.Types.ObjectId,
-    ref: "Team",
+    type: String,
     required: true,
   },
   secondTeam: {
-    type: Schema.Types.ObjectId,
-    ref: "Team",
+    type: String,
     required: true,
   },
   startForecast: {
@@ -22,9 +20,12 @@ const matchSchema = new mongoose.Schema({
     required: true,
   },
   winner: {
-    type: Schema.Types.ObjectId,
-    ref: "Team",
-    default: "draw",
+    type: String,
+    default: 'draw',
+  },
+  isFinished: {
+    type: Boolean,
+    default: false,
   },
   result: {
     type: Object,
@@ -38,10 +39,10 @@ const matchSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-});
+})
 
 matchSchema.statics.validation = function (body) {
-  return matchValidationSchema.validate(body, { abortEarly: false });
-};
+  return matchValidationSchema.validate(body, { abortEarly: false })
+}
 
-module.exports = mongoose.model("Match", matchSchema);
+module.exports = mongoose.model('Match', matchSchema)

@@ -27,14 +27,14 @@
                   <div class="card-header">
                     <h3 class="">ایجاد مسابقه</h3>
                   </div>
-                  <form role="form">
+                  <form role="form" action="/dashboard/admin/add-match" method="post">
                     <div class="card-body">
                       <div class="form-group d-flex justify-content-between">
                         <div class="col-6 p-0">
                           <label for="exampleInputEmail1" class="control-label h5">تیم اول</label>
                           <select class="form-control form-control-lg select2" name="firstTeam">
                             <% if (teams.length > 0) { %> <% teams.forEach(team => { %>
-                            <option class="" value=""><%= team.name %></option>
+                            <option class="" value="<%= team.name %>"><%= team.name %></option>
                             <% }) %> <% } else{%>
                             <option class="" value="">تیمی وجود ندارد</option>
                             <% } %>
@@ -44,7 +44,7 @@
                           <label for="exampleInputEmail1" class="control-label h5">تیم دوم</label>
                           <select class="form-control form-control-lg select2" name="secondTeam">
                             <% if (teams.length > 0) { %> <% teams.forEach(team => { %>
-                            <option class="" value=""><%= team.name %></option>
+                            <option class="" value="<%= team.name %>"><%= team.name %></option>
                             <% }) %> <% } else{%>
                             <option class="" value="">تیمی وجود ندارد</option>
                             <% } %>
@@ -59,7 +59,7 @@
                               <i class="fa fa-calendar"></i>
                             </span>
                           </div>
-                          <input class="normal-example form-control" />
+                          <input class="normal-example form-control" name="startForecast" />
                         </div>
                       </div>
                       <div class="form-group">
@@ -70,7 +70,7 @@
                               <i class="fa fa-calendar"></i>
                             </span>
                           </div>
-                          <input class="normal-example form-control" />
+                          <input class="normal-example form-control" name="endForecast" />
                         </div>
                       </div>
                     </div>

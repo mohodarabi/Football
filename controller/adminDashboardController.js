@@ -1,6 +1,9 @@
 const multer = require('multer')
+const moment = require('jalali-moment')
 
 const Team = require('../model/Team')
+const Match = require('../model/Match')
+const { convertToEn } = require('../utils/jalali')
 const { get500, get404 } = require('./errorController')
 
 const multerStorage = multer.diskStorage({
@@ -64,3 +67,38 @@ exports.addTeamHandler = async (req, res) => {
 }
 
 exports.uploadImage = upload.single('logo')
+
+exports.addMatchHandler = async (req, res) => {
+  try {
+    const { startForecast, endForecast, firstTeam, secondTeam } = req.body
+
+    req.body.startForecast = convertToEn(startForecast)
+    req.body.endForecast = convertToEn(endForecast)
+
+    await Match.validation(req.body)
+
+    if (firstTeam === secondTeam) {
+      req.flash('error', ['تیم ها باید متفاوت باشند'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    if (req.body.startForecast === req.body.endForecast) {
+      req.flash('error', ['زمان شروع و پایان باید متفاوت باشند'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    m = moment(req.body.startForecast, 'YYYY-M-D HH:mm:ss')
+    if (m.isBefore(moment(req.body.endForecast, 'YYYY-M-D HH:mm:ss')) === false) {
+      req.flash('error', ['زمان شروع باید قبل از زمان پایان باشد'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    await Match.create(req.body)
+    req.flash('success_msg', ['مسابقه با موفقیت ایجاد شد'])
+    return res.redirect('/dashboard/admin')
+  } catch (err) {
+    console.log(err)
+    req.flash('error', err.errors)
+    res.redirect('/dashboard/admin')
+  }
+}

@@ -368,3 +368,7 @@ ul {
   width: 300px;
   font-size: 14px;
 }
+
+.normal-example {
+  direction: ltr;
+}
