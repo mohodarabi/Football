@@ -3,7 +3,6 @@ const path = require('path')
 const express = require('express')
 const passport = require('passport')
 const debug = require('debug')('weblog-project')
-const fileupload = require('express-fileupload')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
@@ -20,9 +19,6 @@ const app = express()
 //* bodyParser------------------------------------------
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-//* express fileupload middleware
-app.use(fileupload())
 
 //* load config----------------------------------------
 dotenv.config({ path: './config/config.env' })

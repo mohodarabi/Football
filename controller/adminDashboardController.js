@@ -1,13 +1,31 @@
 const fs = require('fs')
 
 const multer = require('multer')
-const shortId = require('shortid')
-const sharp = require('sharp')
-const appRoot = require('app-root-path')
 
-const { formatDate } = require('../utils/jalali')
 const { get500, get404 } = require('./errorController')
-const { fileFilter } = require('../utils/multer')
+
+const multerStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/uploads/logo')
+  },
+  filename: (req, file, cb) => {
+    const ext = file.mimetype.split('/')[1]
+    cb(null, `user-${req.user.id}-${Date.now()}.${ext}`)
+  },
+})
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true)
+  } else {
+    cb(new AppError('Not an image! Please upload only images.', 400), false)
+  }
+}
+
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter,
+})
 
 exports.getDashboard = async (req, res) => {
   try {
@@ -25,3 +43,10 @@ exports.getDashboard = async (req, res) => {
     get500(req, res)
   }
 }
+
+exports.addTeamHandler = async (req, res) => {
+  console.log(req.file)
+  console.log(req.body)
+}
+
+exports.uploadImage = upload.single('logo')
