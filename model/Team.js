@@ -14,7 +14,7 @@ const teamSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  thumbnail: {
+  logo: {
     type: String,
     required: true,
   },

@@ -7,6 +7,6 @@ const router = new Router()
 
 router.get('/', adminAuthenticate, dashboardController.getDashboard)
 
-router.post('/add-team', dashboardController.uploadImage, dashboardController.addTeamHandler)
+router.post('/add-team', adminAuthenticate, dashboardController.uploadImage, dashboardController.addTeamHandler)
 
 module.exports = router
