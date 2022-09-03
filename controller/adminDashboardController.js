@@ -32,11 +32,13 @@ const upload = multer({
 exports.getDashboard = async (req, res) => {
   try {
     const teams = await Team.find({})
+    const matches = await Match.find({ isFinished: false })
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
     res.render('adminDashboard', {
       pageTitle: 'مدیریت حساب کاربری',
       path: '/adminDashboard',
       teams,
+      matches,
       username: req.user.username,
       role: req.user.role,
       message: req.flash('success_msg'),

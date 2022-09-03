@@ -372,3 +372,7 @@ ul {
 .normal-example {
   direction: ltr;
 }
+
+.table {
+  background: #fff;
+}
