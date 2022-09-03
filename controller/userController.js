@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../model/User')
 const { sendMail } = require('../utils/mailer')
-const { log } = require('console')
 
 exports.signin = (req, res) => {
   res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')

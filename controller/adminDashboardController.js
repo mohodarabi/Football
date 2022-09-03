@@ -28,10 +28,12 @@ const upload = multer({
 
 exports.getDashboard = async (req, res) => {
   try {
+    const teams = await Team.find({})
     res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0')
     res.render('adminDashboard', {
       pageTitle: 'مدیریت حساب کاربری',
       path: '/adminDashboard',
+      teams,
       username: req.user.username,
       role: req.user.role,
       message: req.flash('success_msg'),
@@ -49,25 +51,15 @@ exports.addTeamHandler = async (req, res) => {
     req.body.logo = `localhost:${process.env.PORT}/uploads/logo/${req.file.filename}`
     const team = await Team.findOne({ name: req.body.name })
     if (team) {
-      return res.render('adminDashboard', {
-        pageTitle: 'مدیریت حساب کاربری',
-        path: '/adminDashboard',
-        username: req.user.username,
-        role: req.user.role,
-        errors: ['کاربری با این ایمیل وجود دارد'],
-      })
+      req.flash('error', ['این تیم قبلا ثبت شده است'])
+      return res.redirect('/dashboard/admin')
     }
     await Team.create(req.body)
-    req.flash('success_msg', 'حساب کاربری با موفقیت ایجاد شد')
-    res.redirect('/dashboard/admin')
+    req.flash('success_msg', ['تیم با موفقیت ایجاد شد'])
+    return res.redirect('/dashboard/admin')
   } catch (err) {
-    return res.render('adminDashboard', {
-      pageTitle: 'ساخت حساب کاربری',
-      path: '/signup',
-      username: req.user.username,
-      role: req.user.role,
-      errors: err.errors,
-    })
+    req.flash('error', err.errors)
+    res.redirect('/dashboard/admin')
   }
 }
 

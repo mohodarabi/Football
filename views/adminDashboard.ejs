@@ -32,24 +32,22 @@
                       <div class="form-group d-flex justify-content-between">
                         <div class="col-6 p-0">
                           <label for="exampleInputEmail1" class="control-label h5">تیم اول</label>
-                          <select class="form-control select2 select2-hidden-accessible" style="width: 100%" tabindex="-1" aria-hidden="true">
-                            <option class="selected" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
+                          <select class="form-control form-control-lg select2" name="firstTeam">
+                            <% if (teams.length > 0) { %> <% teams.forEach(team => { %>
+                            <option class="" value=""><%= team.name %></option>
+                            <% }) %> <% } else{%>
+                            <option class="" value="">تیمی وجود ندارد</option>
+                            <% } %>
                           </select>
                         </div>
                         <div class="col-6">
                           <label for="exampleInputEmail1" class="control-label h5">تیم دوم</label>
-                          <select class="form-control form-control-lg select2" name="state">
-                            <option class="selected" value="">تیم دوم</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
-                            <option class="" value="">تیم اول</option>
+                          <select class="form-control form-control-lg select2" name="secondTeam">
+                            <% if (teams.length > 0) { %> <% teams.forEach(team => { %>
+                            <option class="" value=""><%= team.name %></option>
+                            <% }) %> <% } else{%>
+                            <option class="" value="">تیمی وجود ندارد</option>
+                            <% } %>
                           </select>
                         </div>
                       </div>
@@ -90,7 +88,6 @@
                   <form role="form" action="/dashboard/admin/add-team" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                       <div class="col-sm-10"><%- include('./includes/dashboard/team/message.ejs') %></div>
-                      <div class="col-sm-10"><%- include('./includes/dashboard/team/validationMessages.ejs') %></div>
                       <div class="form-group">
                         <label for="teamName" class="col-sm-2 control-label h5">نام تیم</label>
                         <div class="col-sm-10">

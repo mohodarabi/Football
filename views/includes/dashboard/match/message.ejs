@@ -1,15 +1,15 @@
-<% if ( message !== 'undefined' && message.length > 0 ) { %>
+<% if ( typeof message !== 'undefined' && message.length > 0 ) { %> <% message.forEach(msg => { %>
 <div class="alert alert-success alert-dismissible w-100 fade show" role="alert">
-  <%= message %>
+  <%= msg %>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<% } %> <% if (error !== 'undefined' && error.length > 0 ) { %>
+<% }) %> <% } %> <% if (typeof error !== 'undefined' && error.length > 0) { %> <% error.forEach(err => { %>
 <div class="alert alert-danger alert-dismissible w-100 fade show" role="alert">
-  <%= error %>
+  <%= err %>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<% } %>
+<% }) %> <% } %>
