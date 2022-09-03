@@ -376,3 +376,8 @@ ul {
 .table {
   background: #fff;
 }
+
+.modal .close,
+.mailbox-attachment-close {
+  line-height: unset;
+}
