@@ -418,6 +418,16 @@ html [type='button'] {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+.btn-lg {
+  padding: 1.4rem 3.6rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border-radius: 0.3rem;
+  font-size: 25px;
+  border-radius: 8px;
+}
+
 button,
 select {
   text-transform: none;
@@ -542,12 +552,13 @@ span.heading span:after {
   background-color: red;
   width: 90%;
   height: 2px;
-  top: 108%;
-  right: 0px;
+  top: 95%;
+  right: 9px;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: 30px;
+  font-weight: bold;
   color: #b81e20;
 }
 
@@ -1324,7 +1335,7 @@ h6 a:hover {
 /* -------------- latest result section -----------*/
 
 .latestResult {
-  padding: 100px 0;
+  padding: 70px 0;
   background: url('/img/background/latestnews.jpg') no-repeat;
   background-size: cover;
   background-position: center;
@@ -1465,7 +1476,7 @@ h6 a:hover {
   padding-left: 15px;
   padding-right: 15px;
   transition: all 0.8s ease-in-out;
-  margin-top: 80px;
+  margin-top: 125px;
 }
 
 @media (min-width: 992px) {
@@ -1487,7 +1498,7 @@ h6 a:hover {
 }
 
 .latestResult .result .content:first-of-type h4:after {
-  left: 50%;
+  left: 30%;
 }
 
 .latestResult .result .content h4 {
@@ -1498,7 +1509,7 @@ h6 a:hover {
 .latestResult .result .content h4:after {
   position: absolute;
   content: '';
-  width: 50%;
+  width: 68%;
   height: 3px;
   background-color: #b81e20;
   top: 100%;
@@ -1522,11 +1533,11 @@ h6 a:hover {
 
 .latestResult .result .count-number {
   text-align: center;
-  padding: 40px 0 30px;
+  padding: 100px 0 30px;
 }
 
 .latestResult .result .count-number span {
-  font-size: 110px;
+  font-size: 50px;
   color: white;
   display: inline-block;
   padding: 0 5px;

@@ -53,22 +53,12 @@
         <img src=/img/banner/ball.png alt=innerimage class="ls-l layercontent02" style=z-index:5; data-ls="offsetxin: right; offsetxout:left; rotatein:-360; easingin: easeoutquart; durationin: 4000; delayin: 250; parallaxlevel: -5;">
         <img src=/img/banner/front_particles.png alt=particles class=ls-l style="z-index:3; left:0;" data-ls="offsetxin: left; offsetxout:left; scalexin:50; easingin: easeoutquart; durationin: 3000; delayin: 250;">
         <img src=/img/banner/back_particles.png alt=particles class=ls-l style="z-index:3; left:50%;" data-ls="offsetxin: left; offsetxout:left; scalein:90; easingin: easeoutquart; durationin: 3000; delayin: 250;">
-        <h2 class="ls-l bannertext layercontent03" data-ls="offsetxin:left; rotatexin:90 ; durationin: 3500;">شروع</h2>
-        <h2 class="ls-l bannertext01 italic01 layercontent04" data-ls="offsetxin:left; scalexin:9; durationin: 4000;">حرکت</h2>
-        <h4 class="ls-l bannertext02 layercontent05" data-ls="offsetxin:left; rotatexin:90 ; durationin: 4500;">از</h4>
-        <h2 class="ls-l bannertext01 layercontent06" style="left: 87%; top:760px;"data-ls="offsetxin:left; flipxin:90 ; durationin: 5000;">21<sup> شنبه </sup></h2>
-        <h6 class="ls-l bannertext03 layercontent07" data-ls="offsetxin:left; flipxin:90 ; durationin: 6000;">خرداد , 1394</h6>
-      </div>
-    </div>
-    <div class=banner-text>
-      <div class=container>
-        <div class=row>شروع از ساعت 10<sup> شنبه </sup> مهر , 1394</div>
       </div>
     </div>
     <section class="booking bg-smallwhite">
       <div class=container>
         <div class=row>
-          <span class=heading> درباره <span class="mx scc"> scc </span></span>
+          <span class=heading> درباره <span class="mx scc"> ما </span></span>
           <div class=about-wrap>
             <div class="">
               <p role=tabpanel class="" id=matches>لورم ایپسوم یا طرح‌نما (به ایرانی: لورم ایپسوم) به متنی
@@ -83,43 +73,40 @@
     <section class=latestResult>
       <div class=container>
         <div class=row>
-          <span class=heading>آخرین <span class="mx last-result">نتایج</span></span>
+          <span class=heading>آخرین <span class="mx last-result">فرصت پیشبینی</span></span>
           <div class="result clearfix">
             <div class=result-details>
               <div class=content>
-                <h4>پرسپولیس</h4>
-                <p>باخت</p>
-                <p> سردارآزمون (23)</p>
+                <h4><%= match.secondTeam%></h4>
               </div>
               <div class=figure>
                 <div class=team-logo>
-                  <div style=background:url(/img/team-logo/logo01.png) class=teamLogoImg></div>
+                  <!-- <div style=background:src(localhost:8000/uploads/logo/logo-630fa6163cbd6e149716cbbf-1662210905761.png) class=teamLogoImg></div> -->
+                  <img src="/uploads/logo/logo-630fa6163cbd6e149716cbbf-1662210924599.png">
                 </div>
               </div>
             </div>
             <div class=result-count>
-              <div class=count-number><span class=lose-team>1</span> <span>-</span> <span class=win-team>3</span></div>
+              <div class=count-number><span class=lose-team></span> <span>مقابل</span> <span class=win-team></span></div>
               <div class=dateTime>
-                <div class=dateTime-container><span class=date>اردیبهشت 16,1394</span> <span class=time>15:30</span>
+                <div class=dateTime-container><span class=date><%= match.endForecast%></span> <span class=time>15:30</span>
                 </div>
-                <div class=country-wrap><span class=field>استادیوم آزادی</span> <span class=country>(تهران)</span>
-                </div>
+                <div class=country-wrap><span class=field></span><span class=country></span></div>
               </div>
             </div>
             <div class=result-details>
               <div class="content contentresult">
-                <h4>استقلال</h4>
-                <p>برد</p>
-                <p> سردارآزمون (29)</p>
-                <p> سردارآزمون (39)</p>
+                <h4><%= match.firstTeam%></h4>
               </div>
               <div class="figure figresult">
                 <div class=team-logo>
-                  <div style=background:url(/img/team-logo/logo02.png) class=teamLogoImg></div>
+                  <img src="/uploads/logo/logo-630fa6163cbd6e149716cbbf-1662210905761.png">
                 </div>
               </div>
             </div>
-            <div class=center><a href=# class="btn btn-red score-btn">تابلوی امتیازات</a></div>
+            <div class=center>
+              <button type="button" data-firstTeam="<%= match.firstTeam %>" data-secondTeam="<%= match.secondTeam %>" data-id="<%= match._id %>" class="btn btn-lg btn-primary modalBtn">پیشبینی</button>
+            </div>
           </div>
         </div>
       </div>
