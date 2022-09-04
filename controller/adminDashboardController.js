@@ -104,3 +104,39 @@ exports.addMatchHandler = async (req, res) => {
     res.redirect('/dashboard/admin')
   }
 }
+
+exports.updateMatchHandler = async (req, res) => {
+  try {
+    const id = req.params.id
+
+    if (Object.values(req.body)[0] === '' || Object.values(req.body)[1] === '') {
+      req.flash('error', ['زمان شروع و پایان باید متفاوت باشند'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    const match = await Match.findById({ _id: id })
+
+    if (!match) {
+      req.flash('error', ['تیم ها باید متفاوت باشند'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    if (Object.keys(req.body)[0] !== match.firstTeam || Object.keys(req.body)[1] !== match.secondTeam) {
+      req.flash('error', ['زمان شروع و پایان باید متفاوت باشند'])
+      return res.redirect('/dashboard/admin')
+    }
+
+    match.result = {
+      firstTeam: Object.values(req.body)[0],
+      secondTeam: Object.values(req.body)[1],
+    }
+    match.isFinished = true
+    match.save()
+    req.flash('success_msg', ['مسابقه با موفقیت ایجاد شد'])
+    return res.redirect('/dashboard/admin')
+  } catch (err) {
+    console.log(err)
+    req.flash('error', err.errors)
+    res.redirect('/dashboard/admin')
+  }
+}

@@ -11,4 +11,6 @@ router.post('/add-team', adminAuthenticate, dashboardController.uploadImage, das
 
 router.post('/add-match', adminAuthenticate, dashboardController.addMatchHandler)
 
+router.post('/update-match/:id', adminAuthenticate, dashboardController.updateMatchHandler)
+
 module.exports = router
